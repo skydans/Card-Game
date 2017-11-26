@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Danielism Card game </title>
+
+<script language="javascript">
+var sel = 0;
+var sel2 = 0;
+var scr = 0;
+var hscr = 0;
+
+var c1;
+var c2;
+var c3;
+var c4;
+var c5;
+var c6;
+var c7;
+var c8;
+var c9;
+var c10;
+
+var temp;
+var check = 0;
+var t;
+var start = false;
+
+function card(a) {
+if (start) {
+if (check == 0) {
+sel = a; 
+temp = sel;
+switch (sel) {
+		
+		case 1: document.getElementById("card1").src = 'card' + c1 + '.png'; sel=c1; break;
+		case 2: document.getElementById("card2").src = 'card' + c2 + '.png'; sel=c2; break;
+		case 3: document.getElementById("card3").src = 'card' + c3 + '.png'; sel=c3; break;
+		case 4: document.getElementById("card4").src = 'card' + c4 + '.png'; sel=c4; break;
+		case 5: document.getElementById("card5").src = 'card' + c5 + '.png'; sel=c5; break;
+		case 6: document.getElementById("card6").src = 'card' + c6 + '.png'; sel=c6; break;
+		case 7: document.getElementById("card7").src = 'card' + c7 + '.png'; sel=c7; break;
+		case 8: document.getElementById("card8").src = 'card' + c8 + '.png'; sel=c8; break;
+		case 9: document.getElementById("card9").src = 'card' + c9 + '.png'; sel=c9; break;
+		case 10: document.getElementById("card10").src = 'card' + c10 + '.png'; sel=c10; break;
+		}
+		check = 1;
+
+} else {
+sel2 = a;
+
+if (sel2 == temp) {
+	alert("Kartu yang terpilih sama");
+	} else {
+
+switch (sel2) {
+		
+		case 1: document.getElementById("card1").src = 'card' + c1 + '.png'; sel2=c1; break;
+		case 2: document.getElementById("card2").src = 'card' + c2 + '.png'; sel2=c2; break;
+		case 3: document.getElementById("card3").src = 'card' + c3 + '.png'; sel2=c3; break;
+		case 4: document.getElementById("card4").src = 'card' + c4 + '.png'; sel2=c4; break;
+		case 5: document.getElementById("card5").src = 'card' + c5 + '.png'; sel2=c5; break;
+		case 6: document.getElementById("card6").src = 'card' + c6 + '.png'; sel2=c6; break;
+		case 7: document.getElementById("card7").src = 'card' + c7 + '.png'; sel2=c7; break;
+		case 8: document.getElementById("card8").src = 'card' + c8 + '.png'; sel2=c8; break;
+		case 9: document.getElementById("card9").src = 'card' + c9 + '.png'; sel2=c9; break;
+		case 10: document.getElementById("card10").src = 'card' + c10 + '.png'; sel2=c10; break;
+		}
+		
+		proc();
+}
+}
+
+}
+}
+
+
+
+function init(b) {
+
+if (start) {
+
+var rCard = [1,2,3,4,5,1,2,3,4,5];
+var rCard2 = [0,0,0,0,0,0,0,0,0,0];
+
+var k;
+
+for (i=0; i<9; i++) {
+k = Math.floor((Math.random() * 10));
+while (k > (9-i)) {
+k = Math.floor((Math.random() * 10));
+}
+if (k == 1) { k = 0; }
+
+rCard2[i] = rCard[k];
+
+
+for (j=0; j<(9-k); j++) {
+	rCard[k+j] = rCard[k+j+1];
+}
+}
+
+rCard2[9] = rCard[0];
+
+c1 = rCard2[0];
+c2 = rCard2[1];
+c3 = rCard2[2];
+c4 = rCard2[3];
+c5 = rCard2[4];
+c6 = rCard2[5];
+c7 = rCard2[6];
+c8 = rCard2[7];
+c9 = rCard2[8];
+c10 = rCard2[9];
+
+
+document.getElementById("card1").src = 'cardback.jpg'; 
+document.getElementById("card2").src = 'cardback.jpg';
+document.getElementById("card3").src = 'cardback.jpg'; 
+document.getElementById("card4").src = 'cardback.jpg'; 
+document.getElementById("card5").src = 'cardback.jpg'; 
+document.getElementById("card6").src = 'cardback.jpg'; 
+document.getElementById("card7").src = 'cardback.jpg'; 
+document.getElementById("card8").src = 'cardback.jpg'; 
+document.getElementById("card9").src = 'cardback.jpg';
+document.getElementById("card10").src = 'cardback.jpg';
+
+
+if (b==1) {
+t=t+3;
+} else {
+t=20;
+timeCount();
+}
+
+document.getElementById("button").style.display='none';
+
+}
+}
+
+
+
+function proc() {
+	
+	if (sel == sel2) {
+	scr++;
+	document.getElementById("score").innerHTML = scr;
+	
+	
+	setTimeout(function () { 
+	document.getElementById("card1").src = 'cardback.jpg'; 
+	document.getElementById("card2").src = 'cardback.jpg';
+	document.getElementById("card3").src = 'cardback.jpg'; 
+	document.getElementById("card4").src = 'cardback.jpg'; 
+	document.getElementById("card5").src = 'cardback.jpg'; 
+	document.getElementById("card6").src = 'cardback.jpg'; 
+	document.getElementById("card7").src = 'cardback.jpg'; 
+	document.getElementById("card8").src = 'cardback.jpg'; 
+	document.getElementById("card9").src = 'cardback.jpg';
+	document.getElementById("card10").src = 'cardback.jpg';
+	}, 1000);
+	alert("Kartu betul");
+	
+	init(1);
+
+	} else {
+	
+	setTimeout(function () { 
+	document.getElementById("card1").src = 'cardback.jpg'; 
+	document.getElementById("card2").src = 'cardback.jpg';
+	document.getElementById("card3").src = 'cardback.jpg'; 
+	document.getElementById("card4").src = 'cardback.jpg'; 
+	document.getElementById("card5").src = 'cardback.jpg'; 
+	document.getElementById("card6").src = 'cardback.jpg'; 
+	document.getElementById("card7").src = 'cardback.jpg'; 
+	document.getElementById("card8").src = 'cardback.jpg'; 
+	document.getElementById("card9").src = 'cardback.jpg';
+	document.getElementById("card10").src = 'cardback.jpg';
+	}, 1000);
+	alert("Kartu salah");
+	
+	}
+	check = 0;
+	
+}
+
+
+
+
+function timeCount() {
+
+	var interval = setInterval(function () {
+	document.getElementById("time").innerHTML = t;
+	t=t-1;
+	if ( t == -1) {
+	clearInterval(interval);
+	alert("Game over! Your score:" + scr);
+	document.getElementById("button").style.display='block';
+	start = false;
+	
+	document.getElementById("card1").src = 'cardback.jpg'; 
+document.getElementById("card2").src = 'cardback.jpg';
+document.getElementById("card3").src = 'cardback.jpg'; 
+document.getElementById("card4").src = 'cardback.jpg'; 
+document.getElementById("card5").src = 'cardback.jpg'; 
+document.getElementById("card6").src = 'cardback.jpg'; 
+document.getElementById("card7").src = 'cardback.jpg'; 
+document.getElementById("card8").src = 'cardback.jpg'; 
+document.getElementById("card9").src = 'cardback.jpg';
+document.getElementById("card10").src = 'cardback.jpg';
+check = 0;
+
+	if (scr > hscr) {
+	hscr = scr;
+	document.getElementById("h-score").innerHTML = hscr;
+	}
+	
+	scr=0;
+	document.getElementById("score").innerHTML = scr;
+	
+	
+	}
+
+	},1000);
+	
+}
+
+function starting() {
+start = true;
+init();
+
+
+}
+
+
+
+</script>
+<style type="text/css">
+.font1 {
+    font-family: "Tahoma";
+	color : #9900FF;
+	font-size : 12pt;
+	font-weight: normal;
+}
+</style>
+</head>
+
+<body>
+<div style="width: 100%; overflow: hidden;">
+<div style="width: 800px; float: left;">
+<table align=center>
+<tr>
+<td>
+<div onclick="card(1);" style="float:left"><img id="card1" src="cardback.jpg" width="100" height="200" /></div>
+<div onclick="card(2);" style="float:left"><img id="card2" src="cardback.jpg" width="100" height="200" /></div>
+<div onclick="card(3);" style="float:left"><img id="card3" src="cardback.jpg" width="100" height="200" /></div>
+<div onclick="card(4);" style="float:left"><img id="card4" src="cardback.jpg" width="100" height="200" /></div>
+<div onclick="card(5);" style="float:left"><img id="card5" src="cardback.jpg" width="100" height="200" /></div>
+</td>
+</tr>
+<tr>
+<td>
+<div onclick="card(6);" style="float:left"><img id="card6" src="cardback.jpg" width="100" height="200" /></div>
+<div onclick="card(7);" style="float:left"><img id="card7" src="cardback.jpg" width="100" height="200" /></div>
+<div onclick="card(8);" style="float:left"><img id="card8" src="cardback.jpg" width="100" height="200" /></div>
+<div onclick="card(9);" style="float:left"><img id="card9" src="cardback.jpg" width="100" height="200" /></div>
+<div onclick="card(10);" style="float:left"><img id="card10" src="cardback.jpg" width="100" height="200" /></div>
+</td>
+</tr>
+</table>
+</div>
+<div style="margin-left: 620px;" class="font1">
+<p id="test"></p>
+<p id="test2"></p>
+
+<input type="button" id="button" value="Start" onClick="starting()" /> <br>
+
+<span>Time: </span><span id="time">0</span>&nbsp;<span>second(s)</span> <br>
+
+<span>Score: </span><span id="score">0</span> <br>
+<span>High Score: </span><span id="h-score">0</span>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<p>Jika dua kartu yang sama terbuka, maka anda akan mendapat 1 poin serta bonus 3 detik. Tetapi kartu akan di re-shuffle</p>
+</div>
+</div>
+
+</body>
+</html>
